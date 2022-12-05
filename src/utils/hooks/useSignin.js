@@ -10,7 +10,7 @@ export const useSignin = () => {
     setIsLoading(true);
     setErr(null);
 
-    const response = await fetch("/api/user/signin", {
+    const response = await fetch("https://notes-app-api-jnb0.onrender.com/api/user/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
