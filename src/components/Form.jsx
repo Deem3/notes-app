@@ -19,7 +19,7 @@ export default function Form() {
     console.log(title, info);
     const note = { title, info };
 
-    const response = await fetch("api/notes", {
+    const response = await fetch("https://notes-app-api-jnb0.onrender.com/api/notes", {
       method: "POST",
       body: JSON.stringify(note),
       headers: {

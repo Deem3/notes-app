@@ -11,7 +11,7 @@ export default function Notes() {
   const { user } = useAuthContext();
   useEffect(() => {
     const fetchNotes = async () => {
-      const response = await fetch("/api/notes", {
+      const response = await fetch("https://notes-app-api-jnb0.onrender.com/api/notes", {
         headers: {'Authorization': `bearer ${user.token}`}
       });
       const json = await response.json();

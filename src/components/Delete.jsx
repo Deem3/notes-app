@@ -11,7 +11,7 @@ export default function Delete({ note }) {
     if (!user) {
       return;
     }
-    const response = await fetch(`/api/notes/${note._id}`, {
+    const response = await fetch(`https://notes-app-api-jnb0.onrender.com/api/notes/${note._id}`, {
       method: "DELETE",
       headers: { Authorization: `bearer ${user.token}` },
     });
