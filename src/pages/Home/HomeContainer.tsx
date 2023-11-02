@@ -1,5 +1,5 @@
-import { CreateNoteApi, GetAllNotesApi, ResponseGetAllNotes, RestCreateNote } from '@utils/api';
-import { userInfoAtom } from '@utils/jotai';
+import { CreateNoteApi, GetAllNotesApi, ResponseGetAllNotes, RestCreateNote } from '@libs/api';
+import { userInfoAtom } from '@libs/jotai';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';

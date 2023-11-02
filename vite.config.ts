@@ -1,33 +1,20 @@
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
-
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
     port: 3000,
   },
-  plugins: [react()],
+  plugins: [react(), nodePolyfills()],
   resolve: {
     alias: {
-      '@utils/api': 'src/utils/api/index.ts',
-      '@utils/jotai': 'src/utils/jotai/index.ts',
-      '@utils/hooks': 'src/utils/hooks/index.ts',
-      '@utils/helpers': 'src/utils/helpers/index.ts',
-      '@utils/models': 'src/utils/models/index.ts',
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [
-        NodeGlobalsPolyfillPlugin({
-          process: true,
-          buffer: true,
-        }),
-        NodeModulesPolyfillPlugin(),
-      ],
+      '@libs/api': 'src/libs/api/index.ts',
+      '@libs/jotai': 'src/libs/jotai/index.ts',
+      '@libs/hooks': 'src/libs/hooks/index.ts',
+      '@libs/helpers': 'src/libs/helpers/index.ts',
+      '@libs/models': 'src/libs/models/index.ts',
     },
   },
 });

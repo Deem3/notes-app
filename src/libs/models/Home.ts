@@ -1,5 +1,5 @@
-import { ResponseGetAllNotes, RestCreateNote } from '@utils/api';
 import { SubmitHandler, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form';
+import { ResponseGetAllNotes, RestCreateNote } from 'src/libs/api';
 
 export interface NoteFormProps {
   register: UseFormRegister<RestCreateNote>;

@@ -1,5 +1,5 @@
-import { GetUserByIdApi } from '@utils/api';
-import { userInfoAtom } from '@utils/jotai';
+import { GetUserByIdApi } from '@libs/api';
+import { userInfoAtom } from '@libs/jotai';
 import { useAtom } from 'jotai';
 import Cookies from 'js-cookie';
 import jwt from 'jsonwebtoken';

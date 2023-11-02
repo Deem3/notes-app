@@ -1,5 +1,5 @@
+import { NoteTableProps } from '@libs/models';
 import { Table } from '@radix-ui/themes';
-import { NoteTableProps } from '@utils/models';
 import React from 'react';
 
 const NoteTable: React.FC<NoteTableProps> = (props) => {

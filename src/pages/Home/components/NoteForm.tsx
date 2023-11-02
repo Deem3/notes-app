@@ -1,5 +1,5 @@
+import { NoteFormProps } from '@libs/models';
 import { Button, TextFieldInput } from '@radix-ui/themes';
-import { NoteFormProps } from '@utils/models';
 const NoteForm: React.FC<NoteFormProps> = (props) => {
   const { register, handleSubmit, formClick } = props;
   return (

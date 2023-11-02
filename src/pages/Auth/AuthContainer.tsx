@@ -1,9 +1,9 @@
-import { GetUserApi, RestCreateUser, RestGetUser } from "@utils/api";
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import Login from "./components/Login";
-import { Register } from "./components/Register";
+import { GetUserApi, RestCreateUser, RestGetUser } from '@libs/api';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import Login from './components/Login';
+import { Register } from './components/Register';
 
 const AuthContainer: React.FC = () => {
   const navigate = useNavigate();
@@ -19,12 +19,12 @@ const AuthContainer: React.FC = () => {
         setIsLoading(false);
         navigate('/');
       }
-    })
-  }
+    });
+  };
 
   const loginFormClick: SubmitHandler<RestGetUser> = (data) => {
     setIsLoading(true);
-    new GetUserApi().getUser(data,{ withCredentials: true }).then((res) => {
+    new GetUserApi().getUser(data, { withCredentials: true }).then((res) => {
       if (res.data.data) {
         setIsLoading(false);
         navigate('/');
@@ -34,8 +34,8 @@ const AuthContainer: React.FC = () => {
 
   const handlePageChange = (newPage: boolean) => {
     setPage(newPage);
-    console.log(page)
-  }
+    console.log(page);
+  };
 
   return (
     <>
@@ -58,5 +58,5 @@ const AuthContainer: React.FC = () => {
       )}
     </>
   );
-}
+};
 export default AuthContainer;
