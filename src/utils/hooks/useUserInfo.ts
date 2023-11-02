@@ -1,9 +1,9 @@
+import { GetUserByIdApi } from '@utils/api';
 import { userInfoAtom } from '@utils/jotai';
 import { useAtom } from 'jotai';
 import Cookies from 'js-cookie';
 import jwt from 'jsonwebtoken';
 import { useEffect } from 'react';
-import { GetUserByIdApi } from '../api/api';
 
 export const useUserInfo = () => {
   const [userInfo, setUserInfo] = useAtom(userInfoAtom);
@@ -25,28 +25,23 @@ export const useUserInfo = () => {
         iat: number;
         exp: number;
       } | null;
-      if (decodedToken?.id)
-        new GetUserByIdApi()
-          .getUserById(
-            {
-              id: decodedToken.id,
-            },
-            {
-              headers: {
-                Authorization: token,
-              },
-            },
-          )
-          .then((res) => {
-            if (res.data.data) {
-              setUserInfo({
-                email: res.data.data?.email,
-                firstName: res.data.data?.firstName,
-                lastName: res.data.data?.lastName,
-                id: decodedToken.id,
-              });
-            }
-          });
+      const id = decodedToken?.id ?? '';
+      new GetUserByIdApi()
+        .getUserById(id, {
+          headers: {
+            Authorization: token,
+          },
+        })
+        .then((res) => {
+          if (res.data.data) {
+            setUserInfo({
+              email: res.data.data?.email,
+              firstName: res.data.data?.firstName,
+              lastName: res.data.data?.lastName,
+              id,
+            });
+          }
+        });
     }
   }, [userInfo, token, setUserInfo]);
 };

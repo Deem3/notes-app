@@ -39,6 +39,81 @@ export interface GenericError {
 /**
  * 
  * @export
+ * @interface GetAllNotesModel
+ */
+export interface GetAllNotesModel {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'title': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'content': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'createdAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'updatedAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAllNotesModel
+     */
+    'userId': string;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseCreateNote
+ */
+export interface ResponseCreateNote {
+    /**
+     * 
+     * @type {GenericError}
+     * @memberof ResponseCreateNote
+     */
+    'error'?: GenericError;
+    /**
+     * 
+     * @type {ResponseCreateNoteData}
+     * @memberof ResponseCreateNote
+     */
+    'data'?: ResponseCreateNoteData;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseCreateNoteData
+ */
+export interface ResponseCreateNoteData {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseCreateNoteData
+     */
+    'id': string;
+}
+/**
+ * 
+ * @export
  * @interface ResponseCreateUser
  */
 export interface ResponseCreateUser {
@@ -50,42 +125,123 @@ export interface ResponseCreateUser {
     'error'?: GenericError;
     /**
      * 
-     * @type {ResponseCreateUserData}
+     * @type {ResponseCreateNoteData}
      * @memberof ResponseCreateUser
      */
-    'data'?: ResponseCreateUserData;
+    'data'?: ResponseCreateNoteData;
 }
 /**
  * 
  * @export
- * @interface ResponseCreateUserData
+ * @interface ResponseDeleteNote
  */
-export interface ResponseCreateUserData {
-    /**
-     * 
-     * @type {string}
-     * @memberof ResponseCreateUserData
-     */
-    'id': string;
-}
-/**
- * 
- * @export
- * @interface ResponseGetAllUser
- */
-export interface ResponseGetAllUser {
+export interface ResponseDeleteNote {
     /**
      * 
      * @type {GenericError}
-     * @memberof ResponseGetAllUser
+     * @memberof ResponseDeleteNote
      */
     'error'?: GenericError;
     /**
      * 
-     * @type {Array<ResponseGetUserData>}
-     * @memberof ResponseGetAllUser
+     * @type {ResponseDeleteNoteData}
+     * @memberof ResponseDeleteNote
      */
-    'data'?: Array<ResponseGetUserData> | null;
+    'data'?: ResponseDeleteNoteData;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseDeleteNoteData
+ */
+export interface ResponseDeleteNoteData {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseDeleteNoteData
+     */
+    'state': string;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseGetAllNotes
+ */
+export interface ResponseGetAllNotes {
+    /**
+     * 
+     * @type {GenericError}
+     * @memberof ResponseGetAllNotes
+     */
+    'error'?: GenericError;
+    /**
+     * 
+     * @type {Array<GetAllNotesModel>}
+     * @memberof ResponseGetAllNotes
+     */
+    'data'?: Array<GetAllNotesModel>;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseGetNote
+ */
+export interface ResponseGetNote {
+    /**
+     * 
+     * @type {GenericError}
+     * @memberof ResponseGetNote
+     */
+    'error'?: GenericError;
+    /**
+     * 
+     * @type {ResponseGetNoteData}
+     * @memberof ResponseGetNote
+     */
+    'data'?: ResponseGetNoteData;
+}
+/**
+ * 
+ * @export
+ * @interface ResponseGetNoteData
+ */
+export interface ResponseGetNoteData {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'userId': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'updatedAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'createdAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'content': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'title': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetNoteData
+     */
+    'id': string;
 }
 /**
  * 
@@ -140,6 +296,50 @@ export interface ResponseGetUserData {
 /**
  * 
  * @export
+ * @interface ResponseUpdateNote
+ */
+export interface ResponseUpdateNote {
+    /**
+     * 
+     * @type {GenericError}
+     * @memberof ResponseUpdateNote
+     */
+    'error'?: GenericError;
+    /**
+     * 
+     * @type {ResponseCreateNoteData}
+     * @memberof ResponseUpdateNote
+     */
+    'data'?: ResponseCreateNoteData;
+}
+/**
+ * 
+ * @export
+ * @interface RestCreateNote
+ */
+export interface RestCreateNote {
+    /**
+     * 
+     * @type {string}
+     * @memberof RestCreateNote
+     */
+    'title': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RestCreateNote
+     */
+    'content': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RestCreateNote
+     */
+    'userId': string;
+}
+/**
+ * 
+ * @export
  * @interface RestCreateUser
  */
 export interface RestCreateUser {
@@ -187,20 +387,48 @@ export interface RestGetUser {
      */
     'password': string;
 }
+/**
+ * 
+ * @export
+ * @interface RestUpdateNote
+ */
+export interface RestUpdateNote {
+    /**
+     * 
+     * @type {string}
+     * @memberof RestUpdateNote
+     */
+    'title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RestUpdateNote
+     */
+    'content'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RestUpdateNote
+     */
+    'id': string;
+}
 
 /**
- * GetAllUsersApi - axios parameter creator
+ * CreateNoteApi - axios parameter creator
  * @export
  */
-export const GetAllUsersApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CreateNoteApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {RestCreateNote} restCreateNote 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllUsers: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/user/getUsers`;
+        createNote: async (restCreateNote: RestCreateNote, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'restCreateNote' is not null or undefined
+            assertParamExists('createNote', 'restCreateNote', restCreateNote)
+            const localVarPath = `/note/createNote`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -208,11 +436,114 @@ export const GetAllUsersApiAxiosParamCreator = function (configuration?: Configu
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication jwt required
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(restCreateNote, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CreateNoteApi - functional programming interface
+ * @export
+ */
+export const CreateNoteApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CreateNoteApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {RestCreateNote} restCreateNote 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createNote(restCreateNote: RestCreateNote, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseCreateNote>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNote(restCreateNote, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * CreateNoteApi - factory interface
+ * @export
+ */
+export const CreateNoteApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CreateNoteApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {RestCreateNote} restCreateNote 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNote(restCreateNote: RestCreateNote, options?: any): AxiosPromise<ResponseCreateNote> {
+            return localVarFp.createNote(restCreateNote, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * CreateNoteApi - object-oriented interface
+ * @export
+ * @class CreateNoteApi
+ * @extends {BaseAPI}
+ */
+export class CreateNoteApi extends BaseAPI {
+    /**
+     * 
+     * @param {RestCreateNote} restCreateNote 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CreateNoteApi
+     */
+    public createNote(restCreateNote: RestCreateNote, options?: AxiosRequestConfig) {
+        return CreateNoteApiFp(this.configuration).createNote(restCreateNote, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * DeleteNoteApi - axios parameter creator
+ * @export
+ */
+export const DeleteNoteApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNote: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteNote', 'id', id)
+            const localVarPath = `/note/deleteNote/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
 
 
     
@@ -229,57 +560,264 @@ export const GetAllUsersApiAxiosParamCreator = function (configuration?: Configu
 };
 
 /**
- * GetAllUsersApi - functional programming interface
+ * DeleteNoteApi - functional programming interface
  * @export
  */
-export const GetAllUsersApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = GetAllUsersApiAxiosParamCreator(configuration)
+export const DeleteNoteApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DeleteNoteApiAxiosParamCreator(configuration)
     return {
         /**
          * 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllUsers(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetAllUser>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllUsers(options);
+        async deleteNote(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseDeleteNote>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNote(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
 
 /**
- * GetAllUsersApi - factory interface
+ * DeleteNoteApi - factory interface
  * @export
  */
-export const GetAllUsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = GetAllUsersApiFp(configuration)
+export const DeleteNoteApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DeleteNoteApiFp(configuration)
     return {
         /**
          * 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllUsers(options?: AxiosRequestConfig): AxiosPromise<ResponseGetAllUser> {
-            return localVarFp.getAllUsers(options).then((request) => request(axios, basePath));
+        deleteNote(id: string, options?: any): AxiosPromise<ResponseDeleteNote> {
+            return localVarFp.deleteNote(id, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * GetAllUsersApi - object-oriented interface
+ * DeleteNoteApi - object-oriented interface
  * @export
- * @class GetAllUsersApi
+ * @class DeleteNoteApi
  * @extends {BaseAPI}
  */
-export class GetAllUsersApi extends BaseAPI {
+export class DeleteNoteApi extends BaseAPI {
     /**
      * 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GetAllUsersApi
+     * @memberof DeleteNoteApi
      */
-    public getAllUsers(options?: AxiosRequestConfig) {
-        return GetAllUsersApiFp(this.configuration).getAllUsers(options).then((request) => request(this.axios, this.basePath));
+    public deleteNote(id: string, options?: AxiosRequestConfig) {
+        return DeleteNoteApiFp(this.configuration).deleteNote(id, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * GetAllNotesApi - axios parameter creator
+ * @export
+ */
+export const GetAllNotesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllNotes: async (userId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('getAllNotes', 'userId', userId)
+            const localVarPath = `/note/getAllNotes/{userId}`
+                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GetAllNotesApi - functional programming interface
+ * @export
+ */
+export const GetAllNotesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GetAllNotesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllNotes(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetAllNotes>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllNotes(userId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * GetAllNotesApi - factory interface
+ * @export
+ */
+export const GetAllNotesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GetAllNotesApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllNotes(userId: string, options?: any): AxiosPromise<ResponseGetAllNotes> {
+            return localVarFp.getAllNotes(userId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * GetAllNotesApi - object-oriented interface
+ * @export
+ * @class GetAllNotesApi
+ * @extends {BaseAPI}
+ */
+export class GetAllNotesApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetAllNotesApi
+     */
+    public getAllNotes(userId: string, options?: AxiosRequestConfig) {
+        return GetAllNotesApiFp(this.configuration).getAllNotes(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * GetNotesApi - axios parameter creator
+ * @export
+ */
+export const GetNotesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNotes: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getNotes', 'id', id)
+            const localVarPath = `/note/getNotes/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GetNotesApi - functional programming interface
+ * @export
+ */
+export const GetNotesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GetNotesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNotes(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetNote>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotes(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * GetNotesApi - factory interface
+ * @export
+ */
+export const GetNotesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GetNotesApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNotes(id: string, options?: any): AxiosPromise<ResponseGetNote> {
+            return localVarFp.getNotes(id, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * GetNotesApi - object-oriented interface
+ * @export
+ * @class GetNotesApi
+ * @extends {BaseAPI}
+ */
+export class GetNotesApi extends BaseAPI {
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetNotesApi
+     */
+    public getNotes(id: string, options?: AxiosRequestConfig) {
+        return GetNotesApiFp(this.configuration).getNotes(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -403,52 +941,24 @@ export const GetUserApiFactory = function (configuration?: Configuration, basePa
     return {
         /**
          * 
-         * @param {GetUserApiCreateUserRequest} requestParameters Request parameters.
+         * @param {RestCreateUser} restCreateUser 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createUser(requestParameters: GetUserApiCreateUserRequest, options?: AxiosRequestConfig): AxiosPromise<ResponseCreateUser> {
-            return localVarFp.createUser(requestParameters.restCreateUser, options).then((request) => request(axios, basePath));
+        createUser(restCreateUser: RestCreateUser, options?: any): AxiosPromise<ResponseCreateUser> {
+            return localVarFp.createUser(restCreateUser, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {GetUserApiGetUserRequest} requestParameters Request parameters.
+         * @param {RestGetUser} restGetUser 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(requestParameters: GetUserApiGetUserRequest, options?: AxiosRequestConfig): AxiosPromise<ResponseGetUser> {
-            return localVarFp.getUser(requestParameters.restGetUser, options).then((request) => request(axios, basePath));
+        getUser(restGetUser: RestGetUser, options?: any): AxiosPromise<ResponseGetUser> {
+            return localVarFp.getUser(restGetUser, options).then((request) => request(axios, basePath));
         },
     };
 };
-
-/**
- * Request parameters for createUser operation in GetUserApi.
- * @export
- * @interface GetUserApiCreateUserRequest
- */
-export interface GetUserApiCreateUserRequest {
-    /**
-     * 
-     * @type {RestCreateUser}
-     * @memberof GetUserApiCreateUser
-     */
-    readonly restCreateUser: RestCreateUser
-}
-
-/**
- * Request parameters for getUser operation in GetUserApi.
- * @export
- * @interface GetUserApiGetUserRequest
- */
-export interface GetUserApiGetUserRequest {
-    /**
-     * 
-     * @type {RestGetUser}
-     * @memberof GetUserApiGetUser
-     */
-    readonly restGetUser: RestGetUser
-}
 
 /**
  * GetUserApi - object-oriented interface
@@ -459,24 +969,24 @@ export interface GetUserApiGetUserRequest {
 export class GetUserApi extends BaseAPI {
     /**
      * 
-     * @param {GetUserApiCreateUserRequest} requestParameters Request parameters.
+     * @param {RestCreateUser} restCreateUser 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GetUserApi
      */
-    public createUser(requestParameters: GetUserApiCreateUserRequest, options?: AxiosRequestConfig) {
-        return GetUserApiFp(this.configuration).createUser(requestParameters.restCreateUser, options).then((request) => request(this.axios, this.basePath));
+    public createUser(restCreateUser: RestCreateUser, options?: AxiosRequestConfig) {
+        return GetUserApiFp(this.configuration).createUser(restCreateUser, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {GetUserApiGetUserRequest} requestParameters Request parameters.
+     * @param {RestGetUser} restGetUser 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GetUserApi
      */
-    public getUser(requestParameters: GetUserApiGetUserRequest, options?: AxiosRequestConfig) {
-        return GetUserApiFp(this.configuration).getUser(requestParameters.restGetUser, options).then((request) => request(this.axios, this.basePath));
+    public getUser(restGetUser: RestGetUser, options?: AxiosRequestConfig) {
+        return GetUserApiFp(this.configuration).getUser(restGetUser, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -558,29 +1068,15 @@ export const GetUserByIdApiFactory = function (configuration?: Configuration, ba
     return {
         /**
          * 
-         * @param {GetUserByIdApiGetUserByIdRequest} requestParameters Request parameters.
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserById(requestParameters: GetUserByIdApiGetUserByIdRequest, options?: AxiosRequestConfig): AxiosPromise<ResponseGetUser> {
-            return localVarFp.getUserById(requestParameters.id, options).then((request) => request(axios, basePath));
+        getUserById(id: string, options?: any): AxiosPromise<ResponseGetUser> {
+            return localVarFp.getUserById(id, options).then((request) => request(axios, basePath));
         },
     };
 };
-
-/**
- * Request parameters for getUserById operation in GetUserByIdApi.
- * @export
- * @interface GetUserByIdApiGetUserByIdRequest
- */
-export interface GetUserByIdApiGetUserByIdRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof GetUserByIdApiGetUserById
-     */
-    readonly id: string
-}
 
 /**
  * GetUserByIdApi - object-oriented interface
@@ -591,13 +1087,117 @@ export interface GetUserByIdApiGetUserByIdRequest {
 export class GetUserByIdApi extends BaseAPI {
     /**
      * 
-     * @param {GetUserByIdApiGetUserByIdRequest} requestParameters Request parameters.
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GetUserByIdApi
      */
-    public getUserById(requestParameters: GetUserByIdApiGetUserByIdRequest, options?: AxiosRequestConfig) {
-        return GetUserByIdApiFp(this.configuration).getUserById(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getUserById(id: string, options?: AxiosRequestConfig) {
+        return GetUserByIdApiFp(this.configuration).getUserById(id, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * UpdateNoteApi - axios parameter creator
+ * @export
+ */
+export const UpdateNoteApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {RestUpdateNote} restUpdateNote 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateNote: async (restUpdateNote: RestUpdateNote, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'restUpdateNote' is not null or undefined
+            assertParamExists('updateNote', 'restUpdateNote', restUpdateNote)
+            const localVarPath = `/note/updateNote`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(restUpdateNote, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * UpdateNoteApi - functional programming interface
+ * @export
+ */
+export const UpdateNoteApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = UpdateNoteApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {RestUpdateNote} restUpdateNote 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateNote(restUpdateNote: RestUpdateNote, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseUpdateNote>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNote(restUpdateNote, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * UpdateNoteApi - factory interface
+ * @export
+ */
+export const UpdateNoteApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = UpdateNoteApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {RestUpdateNote} restUpdateNote 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateNote(restUpdateNote: RestUpdateNote, options?: any): AxiosPromise<ResponseUpdateNote> {
+            return localVarFp.updateNote(restUpdateNote, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * UpdateNoteApi - object-oriented interface
+ * @export
+ * @class UpdateNoteApi
+ * @extends {BaseAPI}
+ */
+export class UpdateNoteApi extends BaseAPI {
+    /**
+     * 
+     * @param {RestUpdateNote} restUpdateNote 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UpdateNoteApi
+     */
+    public updateNote(restUpdateNote: RestUpdateNote, options?: AxiosRequestConfig) {
+        return UpdateNoteApiFp(this.configuration).updateNote(restUpdateNote, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

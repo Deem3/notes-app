@@ -14,9 +14,7 @@ const AuthContainer: React.FC = () => {
 
   const registerFormClick: SubmitHandler<RestCreateUser> = (data) => {
     setIsLoading(true);
-    new GetUserApi().createUser({
-      restCreateUser: data
-    }, { withCredentials: true }).then((res) => {
+    new GetUserApi().createUser(data, { withCredentials: true }).then((res) => {
       if (res.data.data) {
         setIsLoading(false);
         navigate('/');
@@ -26,9 +24,7 @@ const AuthContainer: React.FC = () => {
 
   const loginFormClick: SubmitHandler<RestGetUser> = (data) => {
     setIsLoading(true);
-    new GetUserApi().getUser({
-      restGetUser: data
-    }, { withCredentials: true }).then((res) => {
+    new GetUserApi().getUser(data,{ withCredentials: true }).then((res) => {
       if (res.data.data) {
         setIsLoading(false);
         navigate('/');
