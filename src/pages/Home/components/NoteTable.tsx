@@ -7,7 +7,7 @@ const NoteTable: React.FC<NoteTableProps> = (props) => {
   return (
     <div className="col-start-1 col-end-4 flex flex-col justify-center mx-2">
       <Table.Root variant="surface">
-        <Table.Header>
+          <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>title</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>description</Table.ColumnHeaderCell>

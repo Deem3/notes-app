@@ -497,12 +497,29 @@ export const CreateNoteApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
+ * CreateNoteApi - interface
+ * @export
+ * @interface CreateNoteApi
+ */
+export interface CreateNoteApiInterface {
+    /**
+     * 
+     * @param {RestCreateNote} restCreateNote 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CreateNoteApiInterface
+     */
+    createNote(restCreateNote: RestCreateNote, options?: AxiosRequestConfig): AxiosPromise<ResponseCreateNote>;
+
+}
+
+/**
  * CreateNoteApi - object-oriented interface
  * @export
  * @class CreateNoteApi
  * @extends {BaseAPI}
  */
-export class CreateNoteApi extends BaseAPI {
+export class CreateNoteApi extends BaseAPI implements CreateNoteApiInterface {
     /**
      * 
      * @param {RestCreateNote} restCreateNote 
@@ -599,12 +616,29 @@ export const DeleteNoteApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
+ * DeleteNoteApi - interface
+ * @export
+ * @interface DeleteNoteApi
+ */
+export interface DeleteNoteApiInterface {
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DeleteNoteApiInterface
+     */
+    deleteNote(id: string, options?: AxiosRequestConfig): AxiosPromise<ResponseDeleteNote>;
+
+}
+
+/**
  * DeleteNoteApi - object-oriented interface
  * @export
  * @class DeleteNoteApi
  * @extends {BaseAPI}
  */
-export class DeleteNoteApi extends BaseAPI {
+export class DeleteNoteApi extends BaseAPI implements DeleteNoteApiInterface {
     /**
      * 
      * @param {string} id 
@@ -701,12 +735,29 @@ export const GetAllNotesApiFactory = function (configuration?: Configuration, ba
 };
 
 /**
+ * GetAllNotesApi - interface
+ * @export
+ * @interface GetAllNotesApi
+ */
+export interface GetAllNotesApiInterface {
+    /**
+     * 
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetAllNotesApiInterface
+     */
+    getAllNotes(userId: string, options?: AxiosRequestConfig): AxiosPromise<ResponseGetAllNotes>;
+
+}
+
+/**
  * GetAllNotesApi - object-oriented interface
  * @export
  * @class GetAllNotesApi
  * @extends {BaseAPI}
  */
-export class GetAllNotesApi extends BaseAPI {
+export class GetAllNotesApi extends BaseAPI implements GetAllNotesApiInterface {
     /**
      * 
      * @param {string} userId 
@@ -803,12 +854,29 @@ export const GetNotesApiFactory = function (configuration?: Configuration, baseP
 };
 
 /**
+ * GetNotesApi - interface
+ * @export
+ * @interface GetNotesApi
+ */
+export interface GetNotesApiInterface {
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetNotesApiInterface
+     */
+    getNotes(id: string, options?: AxiosRequestConfig): AxiosPromise<ResponseGetNote>;
+
+}
+
+/**
  * GetNotesApi - object-oriented interface
  * @export
  * @class GetNotesApi
  * @extends {BaseAPI}
  */
-export class GetNotesApi extends BaseAPI {
+export class GetNotesApi extends BaseAPI implements GetNotesApiInterface {
     /**
      * 
      * @param {string} id 
@@ -961,12 +1029,38 @@ export const GetUserApiFactory = function (configuration?: Configuration, basePa
 };
 
 /**
+ * GetUserApi - interface
+ * @export
+ * @interface GetUserApi
+ */
+export interface GetUserApiInterface {
+    /**
+     * 
+     * @param {RestCreateUser} restCreateUser 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetUserApiInterface
+     */
+    createUser(restCreateUser: RestCreateUser, options?: AxiosRequestConfig): AxiosPromise<ResponseCreateUser>;
+
+    /**
+     * 
+     * @param {RestGetUser} restGetUser 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetUserApiInterface
+     */
+    getUser(restGetUser: RestGetUser, options?: AxiosRequestConfig): AxiosPromise<ResponseGetUser>;
+
+}
+
+/**
  * GetUserApi - object-oriented interface
  * @export
  * @class GetUserApi
  * @extends {BaseAPI}
  */
-export class GetUserApi extends BaseAPI {
+export class GetUserApi extends BaseAPI implements GetUserApiInterface {
     /**
      * 
      * @param {RestCreateUser} restCreateUser 
@@ -1079,12 +1173,29 @@ export const GetUserByIdApiFactory = function (configuration?: Configuration, ba
 };
 
 /**
+ * GetUserByIdApi - interface
+ * @export
+ * @interface GetUserByIdApi
+ */
+export interface GetUserByIdApiInterface {
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GetUserByIdApiInterface
+     */
+    getUserById(id: string, options?: AxiosRequestConfig): AxiosPromise<ResponseGetUser>;
+
+}
+
+/**
  * GetUserByIdApi - object-oriented interface
  * @export
  * @class GetUserByIdApi
  * @extends {BaseAPI}
  */
-export class GetUserByIdApi extends BaseAPI {
+export class GetUserByIdApi extends BaseAPI implements GetUserByIdApiInterface {
     /**
      * 
      * @param {string} id 
@@ -1183,12 +1294,29 @@ export const UpdateNoteApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
+ * UpdateNoteApi - interface
+ * @export
+ * @interface UpdateNoteApi
+ */
+export interface UpdateNoteApiInterface {
+    /**
+     * 
+     * @param {RestUpdateNote} restUpdateNote 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UpdateNoteApiInterface
+     */
+    updateNote(restUpdateNote: RestUpdateNote, options?: AxiosRequestConfig): AxiosPromise<ResponseUpdateNote>;
+
+}
+
+/**
  * UpdateNoteApi - object-oriented interface
  * @export
  * @class UpdateNoteApi
  * @extends {BaseAPI}
  */
-export class UpdateNoteApi extends BaseAPI {
+export class UpdateNoteApi extends BaseAPI implements UpdateNoteApiInterface {
     /**
      * 
      * @param {RestUpdateNote} restUpdateNote 
