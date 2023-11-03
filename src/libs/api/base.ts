@@ -19,7 +19,7 @@ import type { Configuration } from './configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 
-export const BASE_PATH = "http://localhost:8000/templateApi".replace(/\/+$/, "");
+export const BASE_PATH = "https://notes-api-d2v4.onrender.com/templateApi".replace(/\/+$/, "");
 
 /**
  *
