@@ -1,20 +1,31 @@
+import alias from '@rollup/plugin-alias';
 import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vite';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
+import path from 'path';
+import { defineConfig, loadEnv } from 'vite';
 
-// https://vitejs.dev/config/
+const env = loadEnv('', process.cwd(), '');
+const projectDir = path.resolve(__dirname);
 export default defineConfig({
   server: {
     port: 3000,
-  },
-  plugins: [react(), nodePolyfills()],
-  resolve: {
-    alias: {
-      '@libs/api': 'src/libs/api/index.ts',
-      '@libs/jotai': 'src/libs/jotai/index.ts',
-      '@libs/hooks': 'src/libs/hooks/index.ts',
-      '@libs/helpers': 'src/libs/helpers/index.ts',
-      '@libs/models': 'src/libs/models/index.ts',
+    proxy: {
+      '/api': {
+        target: env.API_URL,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     },
   },
+  plugins: [
+    react(),
+    alias({
+      entries: {
+        translations: `${projectDir}/src/utils/translations/index.ts`,
+        components: `${projectDir}/src/utils/components/index.ts`,
+        hooks: `${projectDir}/src/utils/hooks/index.ts`,
+        state: `${projectDir}/src/utils/state/index.ts`,
+        model: `${projectDir}/src/utils/model/index.ts`,
+      },
+    }),
+  ],
 });

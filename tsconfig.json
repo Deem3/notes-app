@@ -13,21 +13,23 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "./",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./",
     "paths": {
-      "@libs/api": ["src/libs/api/index.ts"],
-      "@libs/jotai": ["src/libs/jotai/index.ts"],
-      "@libs/hooks": ["src/libs/hooks/index.ts"],  
-      "@libs/helpers": ["src/libs/helpers/index.ts"],
-      "@libs/models": ["src/libs/models/index.ts"],
+    //   "@utils/components": ["src/utils/components/index.ts"],
+    //   "@utils/hooks": ["src/utils/hooks/index.ts"],
+    //   "@utils/translations": ["src/utils/translations/index.ts"],
+    "translations": ["src/utils/translations/index.ts"],
+    "components": ["src/utils/components/index.ts"],
+    "hooks": ["src/utils/hooks/index.ts"],
+    "state": ["src/utils/state/index.ts"],
+    "model": ["src/utils/model/index.ts"],
     }
-    },
+  },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

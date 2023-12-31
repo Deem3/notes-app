@@ -1,38 +1,24 @@
-import { useUserInfo } from '@libs/hooks';
-import { userInfoAtom } from '@libs/jotai';
-import { useAtom } from 'jotai';
-import Cookies from 'js-cookie';
-import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import { Header } from './components/Header';
-import AuthContainer from './pages/Auth/AuthContainer';
-import HomeContainer from './pages/Home/HomeContainer';
+import { Box } from '@chakra-ui/layout';
+import { ProtectedComponent } from 'components';
+import { Route, Routes } from 'react-router';
+import LoginContainer from './pages/auth/Login/LoginContainer';
+import RegisterContainer from './pages/auth/Register/RegisterContainer';
+import HomeContainer from './pages/home/HomeContainer';
+import { useCurrentUser } from './utils/hooks/useCurrentUser';
 
-const App: React.FC = () => {
-  const navigate = useNavigate();
-  const token = Cookies.get('token');
-  useUserInfo();
-  const [userInfo] = useAtom(userInfoAtom);
-  useEffect(() => {
-    if (!token) {
-      navigate('/auth');
-    }
-  }, [token, navigate, userInfo]);
+function App() {
+  useCurrentUser();
   return (
-    <div className="bg-gray-100">
+    <Box bg={'#233147'} h="100vh">
       <Routes>
-        <Route path="/auth" element={<AuthContainer />} />
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <HomeContainer />
-            </>
-          }
-        />
+        <Route element={<ProtectedComponent />}>
+          <Route path={'/'} element={<HomeContainer />} />
+        </Route>
+        <Route path={'/auth/login'} element={<LoginContainer />} />
+        <Route path={'/auth/register'} element={<RegisterContainer />} />
       </Routes>
-    </div>
+    </Box>
   );
-};
+}
+
 export default App;
